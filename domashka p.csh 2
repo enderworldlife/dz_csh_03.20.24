@@ -1,0 +1,47 @@
+using System;
+
+namespace Lection1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] a = {7, 3, 2};
+            int[] b = {4, 9, 6};
+            int[] c = {1, 8, 5};
+
+            int[] arrayResult = CreateArray(a, b, c);
+            PrintArray(arrayResult);
+            Array.Sort(arrayResult);
+            Console.WriteLine();
+            PrintArray(arrayResult);
+
+        }
+        public static int[] CreateArray(int[] a, int[] b, int[] c)
+        {
+            int[] result = new int[a.Length + b.Length + c.Length];
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                result[i] = a[i];
+            }
+            for (int i = 0; i < b.Length; i++)
+            {
+                result[i + a.Length] = b[i];
+            }
+            for (int i = 0; i < c.Length; i++)
+            {
+                result[i + a.Length + b.Length] = c[i];
+            }
+            return result;
+        }
+        public static void PrintArray(int[] newArray)
+        {
+            foreach (var item in newArray)
+            {
+                Console.Write(item + " ");
+            }
+        }
+
+    }
+}
